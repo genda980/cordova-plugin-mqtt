@@ -19,3 +19,18 @@ exports.onMessageEvent = function (eventId, params) {
     });
 };
 
+exports.syncInit = function (arg0, success, error) {
+    exec(success, error, 'Mqtt', 'syncInit', [arg0]);
+};
+
+exports.syncMsg = function (arg0, success, error) {
+    exec(success, error, 'Mqtt', 'syncMsg', [arg0]);
+};
+
+exports.onSyncMsgEvent = function (eventId, params) {
+    cordova.fireDocumentEvent('Mqtt.onSyncMsgEvent', {
+        eventId: eventId,
+        params: params,
+    });
+};
+
